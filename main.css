@@ -5,12 +5,33 @@
 .notes {
   color: blue;
 }
+#testi{
+  background-color: aquamarine;
+  font-size: xx-large;
+  font-family: 'Trebuchet MS';
+  text-shadow: 2px 2px 0 #000000;
+}
+table {
+  font-family: 'Trebuchet MS';
+  font-size: large;
+  color: #8C2633;
+  table-layout: fixed;
+}
+
+ul{
+  font-family: Verdana;
+  font-weight: bold;
+  padding: 10px 30px;
+  background-color: #8C2633;
+  border: none;
+  border-radius: 6px;
+}
 
 p {
     color: #8C2633;
 }
 a {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact;
     padding: 15px 25px;
     font-size: 24px;
     text-align: center;
