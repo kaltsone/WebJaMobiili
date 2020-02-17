@@ -33,7 +33,7 @@ const Part = (props) => {
     )
 }
 
-const App = () => {
+ const App = () => {
     const course = {
         name: 'Superadvanced web and mobile programming',
         parts: [
@@ -62,8 +62,60 @@ const App = () => {
   )
 }
 
+class App2 extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          good: 0,
+          neutral: 0,
+          bad: 0
+        }
+      }
+    
+      klikGood = () => {
+        this.setState({
+          good: this.state.good + 1
+        })
+      }
+    
+      klikNeutral = () => {
+        this.setState({
+          neutral: this.state.neutral + 1
+        })
+      }
+
+      klikBad = () => {
+        this.setState({
+          bad: this.state.bad + 1
+        })
+      }
+    
+      render() {
+        return (
+          <div>
+              <h1>Send Feedback</h1>
+              <div>
+              <button onClick={this.klikGood}>good</button>
+              <button onClick={this.klikNeutral}>neutral</button>
+              <button onClick={this.klikBad}>bad</button>
+              </div>
+              <h1>
+                  Feedbacks given
+              </h1>
+            <div>Good: {this.state.good}</div>
+            <div>  Neutral: {this.state.neutral} </div>
+            <div>
+              Bad: {this.state.bad} 
+            </div>
+          </div>
+        )
+      }
+    }
 
 ReactDOM.render(
-  <App />,
+    <div>
+        <App />
+        <App2 />
+    </div>,
   document.getElementById('root')
 )
