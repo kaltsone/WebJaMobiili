@@ -61,6 +61,28 @@ const Part = (props) => {
     </div>
   )
 }
+const Button = (props) => {
+    return(
+    <button onClick = {props.klikHandler}>{props.text}</button>       
+    )
+}
+const Statistic = (props) => {
+    return props.name === 'positives' ?
+    <div>{props.name} {props.numbers} %</div> :
+    <div>{props.name} {props.numbers}</div>
+    
+}
+const Statistics = (props) => {
+    return(
+        <div>
+        <Statistic name = 'good' numbers={props.statistics.good}/>
+        <Statistic name = 'neutral' numbers={props.statistics.neutral}/>
+        <Statistic name = 'bad' numbers={props.statistics.bad}/>
+        <Statistic name = 'positives' numbers={(100*(props.statistics.good/props.statistics.klikAmount)).toFixed(1)}/>
+        <Statistic name = 'average' numbers={(props.statistics.count/props.statistics.klikAmount).toFixed(2)} />
+        </div>
+    )
+}
 
 class App2 extends React.Component {
     constructor(props) {
@@ -103,18 +125,14 @@ class App2 extends React.Component {
           <div>
               <h1>Send Feedback</h1>
               <div>
-              <button onClick={this.klikGood}>good</button>
-              <button onClick={this.klikNeutral}>neutral</button>
-              <button onClick={this.klikBad}>bad</button>
+              <Button klikHandler={this.klikGood} text='good '/>
+              <Button klikHandler={this.klikNeutral} text='neutral'/>
+              <Button klikHandler={this.klikBad} text='bad'/>
               </div>
               <h1>
                   Feedbacks given
               </h1>
-            <div>Good: {this.state.good}</div>
-            <div>Neutral: {this.state.neutral} </div>
-            <div>Bad: {this.state.bad} </div>
-            <div>Average: {(this.state.count/this.state.klikAmount).toFixed(2)} (Initially NaN, since one can't devide by zero. Positive count means more good feedback, and negative more bad.) </div>
-            <div>Positive: {(100*(this.state.good/this.state.klikAmount)).toFixed(1)} % </div>
+            <Statistics statistics = {this.state}/>
           </div>
         )
       }
