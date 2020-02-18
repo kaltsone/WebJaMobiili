@@ -73,6 +73,13 @@ const Statistic = (props) => {
     
 }
 const Statistics = (props) => {
+    if (props.statistics.klikAmount === 0) {
+        return(
+            <div>
+                Thus so far thou art not giveth feedback
+            </div>
+        )
+    }
     return(
         <div>
         <Statistic name = 'good' numbers={props.statistics.good}/>
