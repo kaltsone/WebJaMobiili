@@ -68,9 +68,8 @@ const Button = (props) => {
 }
 const Statistic = (props) => {
     return props.name === 'positives' ?
-    <div>{props.name} {props.numbers} %</div> :
-    <div>{props.name} {props.numbers}</div>
-    
+    <tr><td>{props.name}</td><td>{props.numbers} %</td></tr>:
+    <tr><td>{props.name}</td><td>{props.numbers}</td></tr>
 }
 const Statistics = (props) => {
     if (props.statistics.klikAmount === 0) {
@@ -81,13 +80,15 @@ const Statistics = (props) => {
         )
     }
     return(
-        <div>
-        <Statistic name = 'good' numbers={props.statistics.good}/>
-        <Statistic name = 'neutral' numbers={props.statistics.neutral}/>
-        <Statistic name = 'bad' numbers={props.statistics.bad}/>
-        <Statistic name = 'positives' numbers={(100*(props.statistics.good/props.statistics.klikAmount)).toFixed(1)}/>
-        <Statistic name = 'average' numbers={(props.statistics.count/props.statistics.klikAmount).toFixed(2)} />
-        </div>
+        <table>
+            <tbody>
+            <Statistic name = 'good' numbers={props.statistics.good}/>
+            <Statistic name = 'neutral' numbers={props.statistics.neutral}/>
+            <Statistic name = 'bad' numbers={props.statistics.bad}/>
+            <Statistic name = 'positives' numbers={(100*(props.statistics.good/props.statistics.klikAmount)).toFixed(1)}/>
+            <Statistic name = 'average' numbers={(props.statistics.count/props.statistics.klikAmount).toFixed(2)} />
+            </tbody>
+        </table>
     )
 }
 
@@ -129,18 +130,16 @@ class App2 extends React.Component {
     
       render() {
         return (
-          <div>
-              <h1>Send Feedback</h1>
-              <div>
-              <Button klikHandler={this.klikGood} text='good '/>
-              <Button klikHandler={this.klikNeutral} text='neutral'/>
-              <Button klikHandler={this.klikBad} text='bad'/>
-              </div>
-              <h1>
-                  Feedbacks given
-              </h1>
-            <Statistics statistics = {this.state}/>
-          </div>
+            <div>
+                <h1>Send Feedback</h1>
+                <div>
+                    <Button klikHandler={this.klikGood} text='good '/>
+                    <Button klikHandler={this.klikNeutral} text='neutral'/>
+                    <Button klikHandler={this.klikBad} text='bad'/>
+                </div>
+                <h1>Feedbacks given</h1>
+                <Statistics statistics = {this.state}/>
+            </div>
         )
       }
     }
