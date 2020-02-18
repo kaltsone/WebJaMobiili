@@ -68,25 +68,33 @@ class App2 extends React.Component {
         this.state = {
           good: 0,
           neutral: 0,
-          bad: 0
+          bad: 0,
+          count: 0,
+          klikAmount: 0
         }
       }
     
       klikGood = () => {
         this.setState({
-          good: this.state.good + 1
+          good: this.state.good + 1,
+          count: this.state.count + 1,
+          klikAmount: this.state.klikAmount + 1
         })
       }
     
       klikNeutral = () => {
         this.setState({
-          neutral: this.state.neutral + 1
+          neutral: this.state.neutral + 1,
+          klikAmount: this.state.klikAmount + 1
+
         })
       }
 
       klikBad = () => {
         this.setState({
-          bad: this.state.bad + 1
+          bad: this.state.bad + 1,
+          count: this.state.count - 1,
+          klikAmount: this.state.klikAmount + 1
         })
       }
     
@@ -103,10 +111,10 @@ class App2 extends React.Component {
                   Feedbacks given
               </h1>
             <div>Good: {this.state.good}</div>
-            <div>  Neutral: {this.state.neutral} </div>
-            <div>
-              Bad: {this.state.bad} 
-            </div>
+            <div>Neutral: {this.state.neutral} </div>
+            <div>Bad: {this.state.bad} </div>
+            <div>Average: {(this.state.count/this.state.klikAmount).toFixed(2)} (Initially NaN, since one can't devide by zero. Positive count means more good feedback, and negative more bad.) </div>
+            <div>Positive: {(100*(this.state.good/this.state.klikAmount)).toFixed(1)} % </div>
           </div>
         )
       }
