@@ -9,45 +9,36 @@ const Header = (props) => {
     )
 }
 const Contents = (props) => {
-    console.log('contents props are ' + Object.values(props))
     return (
-        <>
-          <Part parts={props} />
-        </>
-      )
-}
-
-const Part = (props) => {
-    console.log('part props are ' + props)
+        <Part parts={props} />
+        )
+    }
+    
+    const Part = (props) => {
     return (
-        <li key={props.id}>
-          {props.name} {props.exercises}
+        <li key={props.parts.content.id}>
+          {props.parts.content.name} {props.parts.content.exercises}
         </li>
       )
 }
 const Total = (props) => {
-    //console.log('total props is ' + Object.values(props).map(p => p.exercises))
+    const total = 0
+    props.total.parts.map(p => total + p.exercises)
     return (
         <b>
-            total: {Object.values(props).reduce((acum, props) => props + acum, 0)}
+            total: {props.total.parts.reduce((acc, total) => acc + total.exercises, 0)}
         </b>
       )
     }
 
 const Course = (props) => {
-    console.log('course props are ' + props.course.parts)
-    props.course.parts.map(p => console.log(p))
   return ( 
     <div>
         <Header text={props.course}/>
         {props.course.parts.map(p => <Contents content={p}/>)}
-        <Total parts={props.course.parts.exercises} />
+        <Total total={props.course} />
     </div>
   )
 }
-/*
-const Course = (props) => {
-  return props.map()
-}
-*/
+
 export default Course
