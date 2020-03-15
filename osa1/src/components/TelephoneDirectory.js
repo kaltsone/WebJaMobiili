@@ -31,7 +31,7 @@ class TelephoneDirectory extends React.Component {
           newName: ''
         })
       } else {
-        console.log('same name already in array')
+        alert('same name already in array')
         this.setState({
           newName: ''
         })
@@ -58,7 +58,7 @@ class TelephoneDirectory extends React.Component {
             </div>
           </form>
           <h2>Numerot</h2>
-          {this.state.persons.map(note => <p key = {note.id}>{note.name}</p>)}
+          {this.state.persons.map(note => <div key = {note.id}>{note.name}</div>)}
         </div>
       )
     }
