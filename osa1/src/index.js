@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Course from './components/Course'
-// import TelephoneDirectory from './components/TelephoneDirectory'
+//import Course from './components/Course'
+import TelephoneDirectory from './components/TelephoneDirectory'
 
 
- const App = () => {
+ /* const App = () => {
     const course = {
     name: 'Superadvanced web and mobile programming',
     parts: [
@@ -42,13 +42,13 @@ import Course from './components/Course'
         <Course course={course} />
     </div>
   )
-}
+}*/
 
 
 ReactDOM.render(
     <div>
-        <App />
+        <TelephoneDirectory />
     </div>,
   document.getElementById('root')
-//  <TelephoneDirectory />
+  //<App />
 )
