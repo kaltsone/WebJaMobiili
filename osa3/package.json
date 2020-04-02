@@ -1,0 +1,27 @@
+{
+  "name": "osa3",
+  "version": "1.0.0",
+  "description": "Part 3 of the Web and mobile programming course",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaltsone.git"
+  },
+  "author": "Kalle Hautamäki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaltsone/issues"
+  },
+  "homepage": "https://github.com/kaltsone#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
