@@ -53,6 +53,15 @@ app.post('/api/persons', (request, response) => {
     })
   }
 
+  //Foolish solution: for loop with if inside
+  for(const person of persons) {
+    if(person.name === body.name || person.number === body.number) {
+      return response.status(400).json({
+        error: 'name or number must be unique'
+      })
+    }
+  }
+
   const person = {
     name: body.name,
     number: body.number,
